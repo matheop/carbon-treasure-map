@@ -24,32 +24,17 @@ class Explorer {
         let d = "N";
         if (this.direction === 1) d = "E";
         else if (this.direction === 2) d = "S";
-        else if (this.direction === 1) d = "O";
+        else if (this.direction === 3) d = "O";
         return d;
     }
 
     calculateMove() {
-        if (!this.journey.length) return null;
-        this.direction = this.updateOrientation();
-    }
-
-    move(nextElement, x, y) {
-        if (nextElement !== "blocked") {
-            this.x = x;
-            this.y = y;
-        }
-        if (nextElement === "treasure") {
-            this.treasures++;
-        }
-        this.journey.shift();
-    }
-
-    updateOrientation() {
+        if (!this.journey.length) return;
         const move = this.journey[0].split("");
         let i = 0;
         let count = this.direction;
         // calculate rotation
-        while (move[i] !== "A" || !move[i]) {
+        while (move[i] !== "A") {
             switch (move[i]) {
                 case "G":
                     count--;
@@ -63,7 +48,18 @@ class Explorer {
             else if (count < 0) count = 3;
             i++;
         }
-        return count;
+        this.direction = count;
+    }
+
+    move(nextElement, x, y) {
+        if (nextElement !== "blocked") {
+            this.x = x;
+            this.y = y;
+        }
+        if (nextElement === "treasure") {
+            this.treasures++;
+        }
+        this.journey.shift();
     }
 }
 
