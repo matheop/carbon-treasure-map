@@ -141,6 +141,7 @@ const moveExplorers = (map, explorers) => {
     return map;
 };
 
+// get the explorers' longest journey
 const getLongestJourney = (explorers) => {
     let longestJourney = 0;
     for (const exp of explorers) {
@@ -150,7 +151,7 @@ const getLongestJourney = (explorers) => {
     return longestJourney;
 };
 
-// check if there is no explorer
+// check if there is no explorer on the free/treasure place and block if so
 const checkIfPlaceIsFree = (el, pos, explorers) => {
     for (const exp of explorers) {
         if (pos.x === exp.x && pos.y === exp.y) {

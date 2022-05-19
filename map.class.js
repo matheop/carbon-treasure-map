@@ -20,9 +20,9 @@ class TreasureMap {
     checkMapElement(x, y) {
         let element;
         // check if element is "M", "A" or outside map
-        if (x > this.width - 1 || y > this.height - 1) element = "outside";
+        if (x < 0 || y < 0 || x > this.width - 1 || y > this.height - 1)
+            element = "outside";
         else element = this.map[y][x];
-        // if (element === "blocked" || element === "M" || element.startsWith("A"))
         if (element === "outside" || element === "M") return "blocked";
         if (element.startsWith("T")) return "treasure";
         else return "free";

@@ -6,4 +6,4 @@ T - 0 - 3 - 2
 T - 1 - 3 - 3
 # {A comme Aventurier} - {Nom de l’aventurier} - {Axe horizontal} - {Axe vertical} - {Orientation} - {Nb. trésors ramassés}
 A - A(Lara) - 0 - 3 - S - 3
-A - A(Waza) - 0 - 0 - E - 0
+A - A(Waza) - 0 - 0 - N - 0
